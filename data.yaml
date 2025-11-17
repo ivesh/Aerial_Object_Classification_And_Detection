@@ -1,0 +1,9 @@
+# YOLOv8 dataset configuration
+
+path: ../data/object_detection_dataset
+train: images/train
+val: images/valid
+test: images/test
+
+nc: 2  # number of classes
+names: ['bird', 'drone']

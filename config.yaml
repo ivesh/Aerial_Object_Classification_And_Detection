@@ -1,0 +1,34 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  classification_source: data/classification_dataset
+  detection_source: data/object_detection_dataset
+  local_data_file: artifacts/data_ingestion/data.zip
+
+data_validation:
+  root_dir: artifacts/data_validation
+  valid_image_extensions: ['.jpg', '.jpeg', '.png']
+  min_image_size: [32, 32]
+  
+model_trainer:
+  root_dir: artifacts/model_trainer
+  classification:
+    model_name: custom_cnn
+    img_size: [224, 224]
+    batch_size: 32
+    epochs: 50
+    learning_rate: 0.001
+  detection:
+    model_name: yolov8n.pt
+    img_size: 640
+    batch_size: 16
+    epochs: 100
+    
+model_pusher:
+  s3_bucket_name: aerial-object-detection-models
+  model_path: models/
+  
+streamlit:
+  title: "Aerial Object Detection & Classification"
+  max_file_size: 200

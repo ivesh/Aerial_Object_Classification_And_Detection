@@ -3,7 +3,7 @@ artifacts_root: artifacts
 data_ingestion:
   root_dir: artifacts/data_ingestion
   classification_source: data/classification_dataset
-  detection_source: data/object_detection_dataset
+  detection_source: https://drive.google.com/file/d/174ngDhD-lKLsDWZXR-_OuX-MmJf6ZpSR/view?usp=sharing
   local_data_file: artifacts/data_ingestion/data.zip
 
 data_validation:

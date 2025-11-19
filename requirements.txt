@@ -12,4 +12,6 @@ PyYAML>=6.0
 tqdm>=4.65.0
 ipykernel
 gdown #Google Drive
+python-box
+ensure
 

@@ -1,0 +1,23 @@
+CLASSIFICATION_DATA:
+  required_classes:
+    - bird
+    - drone
+  required_splits:
+    - train
+    - valid
+    - test
+  image_extensions:
+    - .jpg
+    - .jpeg
+    - .png
+
+DETECTION_DATA:
+  required_files:
+    - data.yaml
+  required_directories:
+    - images/train
+    - images/valid
+    - images/test
+    - labels/train
+    - labels/valid
+    - labels/test

@@ -2,33 +2,22 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  classification_source: data/classification_dataset
-  detection_source: https://drive.google.com/file/d/174ngDhD-lKLsDWZXR-_OuX-MmJf6ZpSR/view?usp=sharing
-  local_data_file: artifacts/data_ingestion/data.zip
+  classification_source_URL: "https://drive.google.com/file/d/your_classification_zip_id/view?usp=sharing"
+  detection_source_URL: "https://drive.google.com/file/d/your_detection_zip_id/view?usp=sharing"
+  classification_local_data_file: artifacts/data_ingestion/classification_data.zip
+  detection_local_data_file: artifacts/data_ingestion/detection_data.zip
+  classification_unzip_dir: artifacts/data_ingestion
+  detection_unzip_dir: artifacts/data_ingestion
 
 data_validation:
   root_dir: artifacts/data_validation
-  valid_image_extensions: ['.jpg', '.jpeg', '.png']
-  min_image_size: [32, 32]
-  
+  classification_data_dir: artifacts/data_ingestion/classification_dataset
+  detection_data_dir: artifacts/data_ingestion/object_detection_Dataset
+  validation_status_file: artifacts/data_validation/status.txt
+
 model_trainer:
   root_dir: artifacts/model_trainer
-  classification:
-    model_name: custom_cnn
-    img_size: [224, 224]
-    batch_size: 32
-    epochs: 50
-    learning_rate: 0.001
-  detection:
-    model_name: yolov8n.pt
-    img_size: 640
-    batch_size: 16
-    epochs: 100
-    
-model_pusher:
-  s3_bucket_name: aerial-object-detection-models
-  model_path: models/
-  
-streamlit:
-  title: "Aerial Object Detection & Classification"
-  max_file_size: 200
+  classification_trained_model_path: artifacts/model_trainer/classification_model.h5
+  detection_trained_model_path: artifacts/model_trainer/detection_model.pt
+  classification_training_data: artifacts/data_ingestion/classification_dataset
+  detection_training_data: artifacts/data_ingestion/object_detection_Dataset

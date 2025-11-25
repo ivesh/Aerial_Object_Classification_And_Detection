@@ -2,8 +2,8 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  classification_source_URL: "https://drive.google.com/file/d/your_classification_zip_id/view?usp=sharing"
-  detection_source_URL: "https://drive.google.com/file/d/your_detection_zip_id/view?usp=sharing"
+  classification_source_URL: "https://drive.google.com/file/d/1SA6o6zmGJ1bCpGIP_Aa0Cw-Hal4zSM15/view?usp=sharing"
+  detection_source_URL: "https://drive.google.com/file/d/174ngDhD-lKLsDWZXR-_OuX-MmJf6ZpSR/view?usp=sharing"
   classification_local_data_file: artifacts/data_ingestion/classification_data.zip
   detection_local_data_file: artifacts/data_ingestion/detection_data.zip
   classification_unzip_dir: artifacts/data_ingestion

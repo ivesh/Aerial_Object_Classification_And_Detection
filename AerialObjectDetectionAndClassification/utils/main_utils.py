@@ -1,4 +1,5 @@
 import os
+import sys
 import yaml
 from box import ConfigBox
 from pathlib import Path
@@ -6,6 +7,8 @@ import json
 import joblib
 from ensure import ensure_annotations
 from typing import Any
+from AerialObjectDetectionAndClassification import logger, AerialException
+
 
 # Remove ensure_annotations from read_yaml and create_directories
 print("DEBUG: Loading main_utils.py - updated version with Path type")
@@ -18,7 +21,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
             content = yaml.safe_load(yaml_file)
             return ConfigBox(content)
     except Exception as e:
-        raise e
+        raise AerialException(e,sys)
 
 @ensure_annotations
 def create_directories(path_to_directories: list, verbose=True):

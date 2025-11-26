@@ -1,3 +1,4 @@
+# schema.yaml
 CLASSIFICATION_DATA:
   required_classes:
     - bird
@@ -10,14 +11,18 @@ CLASSIFICATION_DATA:
     - .jpg
     - .jpeg
     - .png
+    - .bmp
 
 DETECTION_DATA:
+  required_directories:
+    - train/images
+    - train/labels
+    - valid/images
+    - valid/labels
+    - test/images
+    - test/labels
   required_files:
     - data.yaml
-  required_directories:
-    - images/train
-    - images/valid
-    - images/test
-    - labels/train
-    - labels/valid
-    - labels/test
+  expected_classes:
+    - Bird
+    - drone

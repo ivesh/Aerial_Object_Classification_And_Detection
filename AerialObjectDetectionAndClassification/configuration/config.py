@@ -21,6 +21,10 @@ class ConfigurationManager:
         self.schema = read_yaml(schema_filepath) if schema_filepath and schema_filepath.exists() else None
 
         create_directories([Path(self.config.artifacts_root)])
+        
+    def get_schema_config(self):
+        """Get schema configuration for data validation"""
+        return self.schema        
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion

@@ -2,6 +2,8 @@
 from AerialObjectDetectionAndClassification.configuration.config import ConfigurationManager
 from AerialObjectDetectionAndClassification.components.data_ingestion import DataIngestion
 from AerialObjectDetectionAndClassification.components.data_validation import DataValidation
+from AerialObjectDetectionAndClassification.components.model_trainer import ClassificationModelTrainer
+
 from AerialObjectDetectionAndClassification import logger
 
 class TrainingPipeline:
@@ -37,6 +39,21 @@ class TrainingPipeline:
         except Exception as e:
             logger.exception(f"Data validation pipeline failed: {e}")
             return False
+        
+    def run_model_training(self):
+        """
+        Run model training pipeline
+        """
+        try:
+            logger.info("Starting model training pipeline...")
+            model_trainer_config = self.config_manager.get_model_trainer_config()
+            model_trainer = ClassificationModelTrainer(config=model_trainer_config)
+            model_trainer.initiate_classification_training()
+            logger.info("Model training pipeline completed successfully!")
+            return True
+        except Exception as e:
+            logger.exception(f"Model training pipeline failed: {e}")
+            return False        
 
     def run_pipeline(self):
         """
@@ -50,6 +67,12 @@ class TrainingPipeline:
             # Step 2: Data Validation
             if not self.run_data_validation():
                 raise Exception("Data validation failed")
+            
+            logger.info("Training pipeline completed successfully!")
+
+            # Step 3: Model Training
+            if not self.run_model_training():
+                raise Exception("Model training failed")
             
             logger.info("Training pipeline completed successfully!")
             

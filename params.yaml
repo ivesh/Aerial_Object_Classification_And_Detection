@@ -1,5 +1,19 @@
 # Model hyperparameters
 
+MODEL_TRAINER:
+  classification:
+    epochs: 10
+    batch_size: 32
+    image_size: [224, 224]
+    learning_rate: 0.001
+    include_top: false
+    weights: imagenet
+  detection:
+    epochs: 50
+    batch_size: 16
+    image_size: 640
+    pretrained_weights: yolov8n.pt
+
 CUSTOM_CNN:
   input_shape: [224, 224, 3]
   num_classes: 2

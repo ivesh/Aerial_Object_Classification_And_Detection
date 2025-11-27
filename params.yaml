@@ -9,7 +9,7 @@ MODEL_TRAINER:
     include_top: false
     weights: imagenet
   detection:
-    epochs: 50
+    epochs: 5
     batch_size: 16
     image_size: 640
     pretrained_weights: yolov8n.pt

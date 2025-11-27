@@ -203,10 +203,11 @@ def main():
     def load_classification_model():
         # Try multiple possible model paths
         possible_paths = [
-            "research/artifacts/model_trainer/classification_model.h5",
-            "artifacts/model_trainer/yolov8_training/resnet50_classification_model.pth",
+            "research/artifacts/model_trainer/resnet50_classification_model.pth",
             "artifacts/model_trainer/yolov8_training/mobilenet_classification_model.pth",
-            "artifacts/model_trainer/yolov8_training/custom_cnn_classification_model.pth"
+            "artifacts/model_trainer/yolov8_training/custom_cnn_classification_model.pth",
+            "research/artifacts/model_trainer/classification_model.h5",
+            "research/artifacts/model_trainer/efficientnet_history.pkl"
         ]
         
         for model_path in possible_paths:
@@ -219,7 +220,7 @@ def main():
     
     @st.cache_resource
     def load_detection_model():
-        model_path = "artifacts/model_trainer/detection_model.pt"
+        model_path = "research/artifacts/model_trainer/detection_model.pt"
         if os.path.exists(model_path):
             st.info(f"📁 Found detection model at: {model_path}")
             return DetectionModel(model_path)
